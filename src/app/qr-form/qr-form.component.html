@@ -1,0 +1,55 @@
+<div class="jumbotron" id="form-wrap">
+  <h2>Sonkal Platby</h2>
+  <form (ngSubmit)="generate()" #qrForm="ngForm">
+    <div class="form-group">
+      <label for="firstName">Jméno:</label>
+      <input id="firstName" name="firstName" class="form-control" type="text" [(ngModel)]="model.firstName" required
+             #firstName="ngModel">
+      <div [hidden]="firstName.valid || firstName.pristine"
+           class="alert alert-danger">
+        Jméno je povinné
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="lastName">Příjmení:</label>
+      <input id="lastName" name="lastName" class="form-control" type="text" [(ngModel)]="model.lastName"  required
+             #lastName="ngModel">
+      <div [hidden]="lastName.valid || lastName.pristine"
+           class="alert alert-danger">
+        Příjmení je povinné
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="gym">
+        Tělocvična:
+      </label>
+      <select id="gym" class="form-control" name="gym" [(ngModel)]="model.gym" required #gym="ngModel">
+        <option *ngFor="let g of gyms" [ngValue]="g">
+          {{g.label}}
+        </option>
+      </select>
+      <div [hidden]="gym.valid || gym.pristine"
+           class="alert alert-danger">
+        Tělocvična je povinná
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="season">
+        Období
+      </label>
+      <select id="season" class="form-control" name="season" [(ngModel)]="model.season" required #season="ngModel">
+        <option *ngFor="let s of seasons" [ngValue]="s" [selected]="model.season.label==s.label">
+          {{s.label}}
+        </option>
+      </select>
+      <div [hidden]="season.valid || season.pristine"
+           class="alert alert-danger">
+        Období je povinné
+      </div>
+    </div>
+    <div class="form-group">
+      <button type="button" class="btn btn-default btn-primary" (click)="generate()" [disabled]="!qrForm.form.valid">Generuj QR kód</button>
+      <button type="button" class="btn btn-warning" (click)="clearForm()" >Vyčistit</button>
+    </div>
+  </form>
+</div>
