@@ -1,0 +1,1 @@
+ng github-pages:deploy --message "deploy(dist): deploy on GitHub pages"
