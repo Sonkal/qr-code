@@ -14,9 +14,8 @@ export class PaymentCodeGenerator {
 
   getCode(): string {
     let code: string = "SPD*1.0*AM:" + this.amount + "*X-VS:" + this.vs + "*DT:" + this.dueDate + "*CC:CZK*ACC:" +
-      this.account + "*MSG:"+this.senderName;
+      this.account + "*MSG:"+encodeURI(this.senderName);
 
-    //ToDo: message - should be URL encoded?
     //ToDo: check for errors - no stars
     console.log(code)
     return code;

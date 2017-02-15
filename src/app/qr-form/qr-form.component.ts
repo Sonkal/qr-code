@@ -20,8 +20,7 @@ export class QrFormComponent implements OnInit {
     firstName: '',
     lastName: '',
     gym: null,
-    season: Season.SEASON_1,
-    amount: 1100
+    season: Season.CURRENT_SEASON()
   }
 
   seasons = Season.SEASONS;
