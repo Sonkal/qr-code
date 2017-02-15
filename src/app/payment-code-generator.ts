@@ -2,7 +2,7 @@ export class PaymentCodeGenerator {
   //SPD*1.0*ACC:CZ2703000000000189640131*AM:1100*CC:CZK*DT:20170118*MSG:Kokot*X-VS:501
   dueDate: string;
   //ToDo: IBAN
-  account: string = "CZ2703000000000189640131";
+  account: string = "CZ5420100000000189640131";
 
   constructor(private vs: number, private amount: number, private senderName:string) {
     let dt = new Date();
