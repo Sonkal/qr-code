@@ -6,7 +6,8 @@ export class PaymentCodeGenerator {
 
   constructor(private vs: number, private amount: number, private senderName:string) {
     let dt = new Date();
-    let month = ""+dt.getMonth() + 1;
+    let monthN = dt.getMonth() + 1;
+    let month = ""+monthN;
     if (month.length < 2)
       month = "0"+month;
     this.dueDate = dt.getFullYear() + "" + (month) + "" + dt.getDate()
