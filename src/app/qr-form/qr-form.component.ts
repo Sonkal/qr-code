@@ -4,7 +4,7 @@ import {Season} from "../season";
 import {Gym} from "../gym";
 import {PaymentCodeGenerator} from "../payment-code-generator";
 
-declare var QRCode: any;
+declare let QRCode: any;
 
 @Component({
   selector: 'app-qr-form',
@@ -21,7 +21,7 @@ export class QrFormComponent implements OnInit {
     lastName: '',
     gym: null,
     season: Season.CURRENT_SEASON()
-  }
+  };
 
   seasons = Season.SEASONS;
 
@@ -33,21 +33,19 @@ export class QrFormComponent implements OnInit {
   }
 
   generate() {
-    if (!this.qrCode){
+    if (!this.qrCode) {
       let formWrapEl = document.getElementById("form-wrap");
       let dim = formWrapEl.getBoundingClientRect().height - 60;
       this.qrCode = new QRCode(this.qrEl, {
-        width: dim ,
+        width: dim,
         height: dim
       });
       this.qrEl.style.width = String(dim);
     }
     this.qrCode.clear();
 
-    let amount:number = 1100;
-    //ToDo: amount 1300 if delayed
-    let pg = new PaymentCodeGenerator(this.model.gym.code*100+this.model.season.code,amount,
-      this.model.firstName+" "+this.model.lastName);
+    let model = this.model;
+    let pg = new PaymentCodeGenerator(model.gym, model.season, model.firstName, model.lastName);
 
     this.qrCode.makeCode(pg.getCode());
     this.qrEl.parentElement.parentElement.style.visibility = "visible";
