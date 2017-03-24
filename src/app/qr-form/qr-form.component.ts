@@ -1,7 +1,7 @@
-///<reference path="../season.ts"/>
+///<reference path="./season.ts"/>
 import {Component, OnInit} from '@angular/core';
-import {Season} from "../season";
-import {Gym} from "../gym";
+import {Season} from "./season";
+import {Gym} from "./gym";
 import {PaymentCodeGenerator} from "../payment-code-generator";
 
 declare let QRCode: any;

@@ -1,5 +1,5 @@
-import {Gym} from "./gym";
-import {Season} from "./season";
+import {Gym} from "./qr-form/gym";
+import {Season} from "./qr-form/season";
 
 export class PaymentCodeGenerator {
   //SPD*1.0*ACC:CZ2703000000000189640131*AM:1100*CC:CZK*DT:20170118*MSG:Kokot*X-VS:501

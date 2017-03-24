@@ -1,6 +1,6 @@
 import {PaymentCodeGenerator} from './payment-code-generator';
-import {Gym} from "./gym";
-import {Season} from "./season";
+import {Gym} from "./qr-form/gym";
+import {Season} from "./qr-form/season";
 
 describe('PaymentCodeGenerator', () => {
   it('should create an instance', () => {
