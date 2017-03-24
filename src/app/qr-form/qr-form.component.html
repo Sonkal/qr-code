@@ -54,7 +54,7 @@
       <input id="amount" name="amount" class="form-control" readonly="readonly" type="number" [ngModel]="model.season.amount()">
     </div>
     <div class="form-group">
-      <button type="button" class="btn btn-default btn-primary" (click)="generate()" [disabled]="!qrForm.form.valid">Generuj QR kód</button>
+      <button type="submit" class="btn btn-default btn-primary" (click)="generate()" [disabled]="!qrForm.form.valid">Generuj QR kód</button>
       <button type="button" class="btn btn-warning" (click)="clearForm()" >Vyčistit</button>
       <a href="http://sonkal.cz" style="float: right;"><span class="glyphicon glyphicon-share-alt"></span><span>Zpět na Sonkal</span></a>
     </div>
