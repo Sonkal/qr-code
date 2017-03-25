@@ -5,6 +5,8 @@ import { FormsModule } from '@angular/forms';
 //import { DebugElement } from '@angular/core';
 
 import { QrFormComponent } from './qr-form.component';
+import {PaymentCodeGenerator} from "../qr-form-service/payment-code-generator";
+import {Gym} from "./gym";
 
 describe('QrFormComponent', () => {
   let component: QrFormComponent;
@@ -13,7 +15,8 @@ describe('QrFormComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [FormsModule],
-      declarations: [ QrFormComponent ]
+      declarations: [ QrFormComponent ],
+      providers: [PaymentCodeGenerator]
     })
     .compileComponents();
   }));
@@ -26,5 +29,19 @@ describe('QrFormComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+  it('should generate code', () => {
+    let code = null;
+    expect(component.codeGen).toBeTruthy();
+    component.model.gym = Gym.GYM_CER;
+    component.codeGen.subscribe((c)=>{
+      code = c;
+    });
+    component.generate()
+    expect(code).toBeTruthy();
+  });
+  it('should clear form', () => {
+    component.clearForm();
+    expect(component.model).toEqual(QrFormComponent.DEFAULT_MODEL);
   });
 });

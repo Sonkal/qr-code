@@ -13,7 +13,7 @@ import {PaymentCodeGenerator} from "../qr-form-service/payment-code-generator";
 })
 export class QrFormComponent implements OnInit {
 
-  default_model = {
+  static readonly DEFAULT_MODEL = {
     firstName: '',
     lastName: '',
     gym: null,
@@ -24,20 +24,20 @@ export class QrFormComponent implements OnInit {
 
   gyms = Gym.GYMS;
 
-  model = Object.assign({}, this.default_model);
+  model = Object.assign({}, QrFormComponent.DEFAULT_MODEL);
 
-  constructor(private codeGen:PaymentCodeGenerator){
+  constructor(public codeGen:PaymentCodeGenerator){
   }
 
   ngOnInit() {
   }
 
-  generate() {
+  generate():void {
     let model = this.model;
     let pg = this.codeGen.generateCode(model.gym, model.season, model.firstName, model.lastName);
   }
 
-  clearForm() {
-    Object.assign(this.model, this.default_model);
+  clearForm():void {
+    Object.assign(this.model, QrFormComponent.DEFAULT_MODEL);
   }
 }

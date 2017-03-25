@@ -4,6 +4,7 @@ import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
 
 import { QrDisplayComponent } from './qr-display.component';
+import {PaymentCodeGenerator} from "../qr-form-service/payment-code-generator";
 
 describe('QrDisplayComponent', () => {
   let component: QrDisplayComponent;
@@ -11,7 +12,8 @@ describe('QrDisplayComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ QrDisplayComponent ]
+      declarations: [ QrDisplayComponent ],
+      providers: [PaymentCodeGenerator]
     })
     .compileComponents();
   }));
