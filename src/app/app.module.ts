@@ -4,17 +4,20 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { QrFormComponent } from './qr-form/qr-form.component';
+import { QrDisplayComponent } from './qr-display/qr-display.component';
+import {PaymentCodeGenerator} from "./qr-form-service/payment-code-generator";
 
 @NgModule({
   declarations: [
-    QrFormComponent
+    QrFormComponent,
+    QrDisplayComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule
   ],
-  providers: [],
-  bootstrap: [QrFormComponent]
+  providers: [PaymentCodeGenerator],
+  bootstrap: [QrFormComponent, QrDisplayComponent]
 })
 export class AppModule { }
