@@ -1,4 +1,4 @@
-import {Component, OnInit, ElementRef, ViewChild} from '@angular/core';
+import {Component, OnInit, ElementRef, ViewChild, Renderer, Input} from '@angular/core';
 import {PaymentCodeGenerator} from "../qr-form-service/payment-code-generator";
 
 declare let QRCode: any;
@@ -10,32 +10,49 @@ declare let QRCode: any;
 })
 export class QrDisplayComponent implements OnInit {
 
-  @ViewChild('qrDisplay') qrEl: ElementRef;
   // QR Core wrapper element
+  @ViewChild('qrDisplay') qrEl: ElementRef;
+
   qrCode = null;
 
-  constructor(private codeGen:PaymentCodeGenerator) {
-    codeGen.subscribe((code)=>{this.generate(code)});
+  dim:number;
+  @Input() set qrdim(value){this.dim = Number(value);}
+  get qrdim():number{return this.dim;}
+  padding: number;
+  fullWidth: number;
+
+
+  constructor(private codeGen: PaymentCodeGenerator) {
+    codeGen.subscribe((code) => {
+      this.generate(code)
+    });
   }
 
 
   ngOnInit() {
+    console.log("INit: qrdim " + this.qrdim);
   }
 
-  generate(code:string) {
+  generate(code: string) {
+    console.log("gen: qrdim" + this.qrdim);
     if (!this.qrCode) {
-      let formWrapEl = document.getElementById("form-wrap");
-      let dim = formWrapEl.getBoundingClientRect().height - 60;
       this.qrCode = new QRCode(this.qrEl.nativeElement, {
-        width: dim,
-        height: dim
+        width: this.qrdim,
+        height: this.qrdim
       });
-      this.qrEl.nativeElement.style.width = String(dim);
     }
     this.qrCode.clear();
 
-
     this.qrCode.makeCode(code);
+    let dotWid: number = this.qrCode.nWidth;
+
+    this.computeLayout(dotWid);
+
     this.qrEl.nativeElement.parentElement.parentElement.style.visibility = "visible";
+  }
+
+  computeLayout(dotWid: number) {
+    this.padding = 4 * Number(dotWid);
+    this.fullWidth = (this.qrdim + 2 * this.padding);
   }
 }

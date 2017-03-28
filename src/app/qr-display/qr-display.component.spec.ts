@@ -1,8 +1,5 @@
 /* tslint:disable:no-unused-variable */
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { By } from '@angular/platform-browser';
-import { DebugElement } from '@angular/core';
-
 import { QrDisplayComponent } from './qr-display.component';
 import {PaymentCodeGenerator} from "../qr-form-service/payment-code-generator";
 
@@ -26,5 +23,11 @@ describe('QrDisplayComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+  it('should compute layout properly', () => {
+    component.qrdim = 100;
+    component.computeLayout(10);
+    expect(component.padding).toEqual(40);
+    expect(component.fullWidth).toEqual(180);
   });
 });

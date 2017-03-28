@@ -6,9 +6,11 @@ import { HttpModule } from '@angular/http';
 import { QrFormComponent } from './qr-form/qr-form.component';
 import { QrDisplayComponent } from './qr-display/qr-display.component';
 import {PaymentCodeGenerator} from "./qr-form-service/payment-code-generator";
+import {AppComponent} from "./app.component";
 
 @NgModule({
   declarations: [
+    AppComponent,
     QrFormComponent,
     QrDisplayComponent
   ],
@@ -18,6 +20,6 @@ import {PaymentCodeGenerator} from "./qr-form-service/payment-code-generator";
     HttpModule
   ],
   providers: [PaymentCodeGenerator],
-  bootstrap: [QrFormComponent, QrDisplayComponent]
+  bootstrap: [AppComponent]
 })
 export class AppModule { }

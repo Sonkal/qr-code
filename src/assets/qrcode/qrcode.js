@@ -388,6 +388,7 @@ var QRCode;
 			var nRoundedWidth = Math.round(nWidth);
 			var nRoundedHeight = Math.round(nHeight);
 
+
       //change #2
       this.nWidth = nRoundedWidth;
       // end
@@ -592,6 +593,8 @@ var QRCode;
 		this._oQRCode.make();
 		this._el.title = sText;
 		this._oDrawing.draw(this._oQRCode);
+		// change #3
+		this.nWidth = this._oDrawing.nWidth;
 		this.makeImage();
 	};
 

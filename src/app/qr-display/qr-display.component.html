@@ -1,10 +1,11 @@
 <div style="display: inline-block;">
   <div #qrDisplay
-       style="display: inline-block;padding: 30px; border-color: black; border-style: solid; border-width: 1px; border-bottom-style: none;">
+       class="code-border"
+       [ngStyle]="{display: 'inline-block', padding: padding+'px', width: fullWidth +'px'}">
   </div>
   <div style="display: flex; margin-top:-6px;">
-    <div style="width: 30px; border-top: solid 1px black;"></div>
-    <div id="qr-text" style="margin: -8px 0 0 0; padding: 0; font-size: 30px;white-space: nowrap;">QR platba</div>
+    <div [ngStyle]="{borderTop: 'solid 1px black', width: padding+'px'}"></div>
+    <div [ngStyle]="{margin: '-8px 0 0 0', padding: '0', whiteSpace: 'nowrap', fontSize: padding+'px'}">QR platba</div>
     <div style="border-top: solid 1px black; width: 100%;"></div>
   </div>
 </div>

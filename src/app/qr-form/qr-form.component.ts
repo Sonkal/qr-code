@@ -5,7 +5,6 @@ import {Gym} from "./gym";
 import {PaymentCodeGenerator} from "../qr-form-service/payment-code-generator";
 
 
-
 @Component({
   selector: 'qr-form',
   templateUrl: './qr-form.component.html',
@@ -34,7 +33,7 @@ export class QrFormComponent implements OnInit {
 
   generate():void {
     let model = this.model;
-    let pg = this.codeGen.generateCode(model.gym, model.season, model.firstName, model.lastName);
+    this.codeGen.generateCode(model.gym, model.season, model.firstName, model.lastName);
   }
 
   clearForm():void {
