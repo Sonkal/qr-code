@@ -37,11 +37,17 @@ describe('QrFormComponent', () => {
     component.codeGen.subscribe((c)=>{
       code = c;
     });
-    component.generate()
+    component.generate();
     expect(code).toBeTruthy();
   });
   it('should clear form', () => {
     component.clearForm();
     expect(component.model).toEqual(QrFormComponent.DEFAULT_MODEL);
+  });
+  it('should remove non-latin characters', () => {
+    component.clearForm();
+    component.latinise = true;
+    let latin = component.applyLatin("Šiška bříška");
+    expect(latin).toEqual("Siska briska");
   });
 });

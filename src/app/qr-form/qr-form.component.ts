@@ -1,9 +1,10 @@
 ///<reference path="./season.ts"/>
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, Input} from '@angular/core';
 import {Season} from "./season";
 import {Gym} from "./gym";
 import {PaymentCodeGenerator} from "../qr-form-service/payment-code-generator";
 
+declare let LatinConvertor: any;
 
 @Component({
   selector: 'qr-form',
@@ -11,6 +12,9 @@ import {PaymentCodeGenerator} from "../qr-form-service/payment-code-generator";
   styleUrls: ['./qr-form.component.css']
 })
 export class QrFormComponent implements OnInit {
+  private latin: boolean;
+  @Input() set latinise(value){this.latin = Boolean(value);}
+  get latinise(){return this.latin;}
 
   static readonly DEFAULT_MODEL = {
     firstName: '',
@@ -25,7 +29,10 @@ export class QrFormComponent implements OnInit {
 
   model = Object.assign({}, QrFormComponent.DEFAULT_MODEL);
 
+  lConvertor = null;
+
   constructor(public codeGen:PaymentCodeGenerator){
+    this.lConvertor = new LatinConvertor();
   }
 
   ngOnInit() {
@@ -33,10 +40,20 @@ export class QrFormComponent implements OnInit {
 
   generate():void {
     let model = this.model;
-    this.codeGen.generateCode(model.gym, model.season, model.firstName, model.lastName);
+    this.codeGen.generateCode(model.gym, model.season, this.applyLatin(model.firstName), this.applyLatin(model.lastName));
   }
 
   clearForm():void {
     Object.assign(this.model, QrFormComponent.DEFAULT_MODEL);
+  }
+
+  applyLatin(value:string):string{
+    if (this.latin)
+    {
+      let any = this.lConvertor.convert(value);
+      console.log("Latin:"+any);
+      return String(any);}
+    else
+      return value;
   }
 }
