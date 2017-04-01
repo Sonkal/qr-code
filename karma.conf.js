@@ -13,7 +13,6 @@ module.exports = function (config) {
     ],
     files: [
       { pattern: './src/test.ts', watched: false },
-      './src/assets/latinise/latinise_compact.js',
       './src/assets/qrcode/qrcode.js'
     ],
     preprocessors: {

@@ -1,4 +1,4 @@
-import {Component, OnInit, ElementRef, ViewChild, Renderer, Input} from '@angular/core';
+import {Component, OnInit, ElementRef, ViewChild, Input} from '@angular/core';
 import {PaymentCodeGenerator} from "../qr-form-service/payment-code-generator";
 
 declare let QRCode: any;
@@ -30,11 +30,9 @@ export class QrDisplayComponent implements OnInit {
 
 
   ngOnInit() {
-    console.log("INit: qrdim " + this.qrdim);
   }
 
   generate(code: string) {
-    console.log("gen: qrdim" + this.qrdim);
     if (!this.qrCode) {
       this.qrCode = new QRCode(this.qrEl.nativeElement, {
         width: this.qrdim,

@@ -3,8 +3,7 @@ import {Component, OnInit, Input} from '@angular/core';
 import {Season} from "./season";
 import {Gym} from "./gym";
 import {PaymentCodeGenerator} from "../qr-form-service/payment-code-generator";
-
-declare let LatinConvertor: any;
+import LatinConvertor from "../../assets/latinise/latinise_compact";
 
 @Component({
   selector: 'qr-form',
@@ -51,7 +50,6 @@ export class QrFormComponent implements OnInit {
     if (this.latin)
     {
       let any = this.lConvertor.convert(value);
-      console.log("Latin:"+any);
       return String(any);}
     else
       return value;

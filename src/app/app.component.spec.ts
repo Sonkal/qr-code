@@ -7,9 +7,6 @@ import {QrDisplayComponent} from "./qr-display/qr-display.component";
 import {PaymentCodeGenerator} from "./qr-form-service/payment-code-generator";
 import {FormsModule} from "@angular/forms";
 
-//import "../assets/latinise/latinise_compact";
-//declare let LatinConvertor: any;
-
 describe('AppComponent', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({

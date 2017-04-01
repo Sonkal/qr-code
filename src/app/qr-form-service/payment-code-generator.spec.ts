@@ -14,7 +14,6 @@ describe('PaymentCodeGenerator', () => {
     let paymentCodeGenerator = new PaymentCodeGenerator();
     let genCode = null;
     paymentCodeGenerator.subscribe((code) => {
-      console.log("Event:" + code);
       if (genCode === null)
         genCode = code;
       expect(genCode).toEqual(code);

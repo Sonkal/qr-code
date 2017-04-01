@@ -1,11 +1,13 @@
 //http://semplicewebsites.com/removing-accents-javascript
-var LatinConvertor;
-LatinConvertor = function () {
-};
-LatinConvertor.prototype.convert = function (value) {
-    return value.replace(/[^A-Za-z0-9]/g, function (x) { return latin_map[x] || x; });
-};
-var latin_map = {
+export default class LatinConvertor{
+  convert (value:string):string {
+    return value.replace(/[^A-Za-z0-9]/g, function (x) {
+      return latin_map[x] || x;
+    });
+  }
+}
+
+let latin_map = {
     'Á': 'A',
     'Ă': 'A',
     'Ắ': 'A',
@@ -833,12 +835,3 @@ var latin_map = {
     'ᵥ': 'v',
     'ₓ': 'x'
 };
-/*
-String.prototype.latinise = function () {
-    return this.replace(/[^A-Za-z0-9]/g, function (x) { return latin_map[x] || x; });
-};
-String.prototype.latinize = String.prototype.latinise;
-String.prototype.isLatin = function () {
-    return this == this.latinise();
-};
-*/
