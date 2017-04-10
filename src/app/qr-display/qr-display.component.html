@@ -1,9 +1,10 @@
 <div style="display: inline-block;">
+  <h4>&nbsp;</h4><!-- ToDo: make this padding a parameter-->
   <div #qrDisplay
        class="code-border"
        [ngStyle]="{display: 'inline-block', padding: padding+'px', width: fullWidth +'px'}">
   </div>
-  <div style="display: flex; margin-top:-6px;">
+  <div style="display: flex; margin-top:-6px; visibility: hidden;" #qrBottom>
     <div [ngStyle]="{borderTop: 'solid 1px black', width: padding+'px'}"></div>
     <div [ngStyle]="{margin: '-8px 0 0 0', padding: '0', whiteSpace: 'nowrap', fontSize: padding+'px'}">QR platba</div>
     <div style="border-top: solid 1px black; width: 100%;"></div>

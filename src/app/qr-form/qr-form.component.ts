@@ -11,9 +11,13 @@ import LatinConvertor from "../../assets/latinise/latinise_compact";
   styleUrls: ['./qr-form.component.css']
 })
 export class QrFormComponent implements OnInit {
-  private latin: boolean;
+  private latin = true;
   @Input() set latinise(value){this.latin = Boolean(value);}
   get latinise(){return this.latin;}
+
+  private _headless = false;
+  @Input() set headless(value){this._headless = Boolean(value);}
+  get headless(){return this._headless;}
 
   static readonly DEFAULT_MODEL = {
     firstName: '',

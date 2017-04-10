@@ -12,6 +12,7 @@ export class QrDisplayComponent implements OnInit {
 
   // QR Core wrapper element
   @ViewChild('qrDisplay') qrEl: ElementRef;
+  @ViewChild('qrBottom') qrBottom: ElementRef;
 
   qrCode = null;
 
@@ -46,7 +47,8 @@ export class QrDisplayComponent implements OnInit {
 
     this.computeLayout(dotWid);
 
-    this.qrEl.nativeElement.parentElement.parentElement.style.visibility = "visible";
+//    this.qrEl.nativeElement.parentElement.parentElement.style.visibility = "visible";
+    this.qrBottom.nativeElement.style.visibility = "visible"
   }
 
   computeLayout(dotWid: number) {
