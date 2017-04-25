@@ -20,13 +20,12 @@
     Petřiny a Horní Počernice</TITLE>
   <META name="GENERATOR" content="MSHTML 11.00.9600.18618">
 
-  <!-- CHANGE START -->
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-
-  <!-- CHANGE END -->
+  <!-- CHANGES START -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <!-- CHANGES END -->
 
 </HEAD>
 <BODY>
@@ -284,16 +283,14 @@ webu naleznete <SPAN class="orange">99 410</SPAN> fotek a <SPAN
 <DIV class="kalendar_td-aktual-khaki-vikend" id="cell-2017-04-30"
 ""="">30
 </DIV></DIV></DIV></DIV></DIV>
-<!-- CHANGE START -->
-<DIV id="div_platby_link">
-  <DIV class="h1_blok">platby</DIV>
-  <div style="color: orange;font-size: 80%; padding:6px;">
-    <a id="platby_open" href="#" style="color: orange;">
-      Generátor kódu platby
-    </a>
-  </div>
-</DIV>
-<!-- CHANGE END -->
+<!-- CHANGES START -->
+  <DIV id="div_platby_link">
+    <DIV class="h1_blok">platby</DIV>
+    <div style="color: orange;font-size: 80%; padding:6px;">
+      <a id="platby_open" href="#" style="color: orange;">Generátor kódu platby</a>
+    </div>
+  </DIV>
+<!-- CHANGES END -->
 <DIV id="div_zpravy">
   <DIV class="h1_blok">krátké zprávy</DIV>
   <DIV title="30.3.2017 – 15:01">
@@ -653,24 +650,24 @@ si bude myslet, že zná správné téma může mi to říci osobně, napsat mai
   </DIV>
 </DIV>
 
-<!-- CHANGE START -->
-<script>
-  $(function () {
-    $("#platby_dialog").dialog({
-      height: "auto",
-      width: 640,
-      autoOpen: false,
-      modal: true
+<!-- CHANGES START -->
+  <script>
+    $(function () {
+      $("#platby_dialog").dialog({
+        height: "auto",
+        width: 640,
+        autoOpen: false,
+        modal: true
+      });
     });
-  });
 
-  $('#platby_open').click(function () {
-    $('#platby_dialog').dialog('open');
-  });
-</script>
-<div id="platby_dialog" title="Sonkal Platby">
-  <iframe scrolling="no" frameBorder="0" src="qr-code.html" width="600" height="380"/>
-</div>
-<!-- CHANGE END -->
+    $('#platby_open').click(function () {
+      $('#platby_dialog').dialog('open');
+    });
+  </script>
+  <div id="platby_dialog" title="Sonkal Platby">
+    <iframe scrolling="no" frameBorder="0" src="qr-code.html" width="600" height="380"/>
+  </div>
+<!-- CHANGES END -->
 </BODY>
 </HTML>
