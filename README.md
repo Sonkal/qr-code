@@ -9,4 +9,4 @@ This project was generated with [angular-cli](https://github.com/angular/angular
 
 ## Deployed on Github Pages
 
-The app is running here: https://sonkal.github.io//angular-form-app/
+The app is running here: https://sonkal.github.io/qr-code/index.html
