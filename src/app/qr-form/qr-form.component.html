@@ -3,7 +3,7 @@
   <form (ngSubmit)="generate()" #qrForm="ngForm">
     <div class="form-group">
       <label for="firstName">Jméno:</label>
-      <input id="firstName" name="firstName" class="form-control" type="text" [(ngModel)]="model.firstName" required
+      <input id="firstName" name="firstName" class="form-control input-sm" type="text" [(ngModel)]="model.firstName" required
              #firstName="ngModel">
       <div [hidden]="firstName.valid || firstName.pristine"
            class="alert alert-danger">
@@ -12,7 +12,7 @@
     </div>
     <div class="form-group">
       <label for="lastName">Příjmení:</label>
-      <input id="lastName" name="lastName" class="form-control" type="text" [(ngModel)]="model.lastName"  required
+      <input id="lastName" name="lastName" class="form-control input-sm" type="text" [(ngModel)]="model.lastName"  required
              #lastName="ngModel">
       <div [hidden]="lastName.valid || lastName.pristine"
            class="alert alert-danger">
@@ -23,7 +23,7 @@
       <label for="gym">
         Tělocvična:
       </label>
-      <select id="gym" class="form-control" name="gym" [(ngModel)]="model.gym" required #gym="ngModel">
+      <select id="gym" class="form-control input-sm" name="gym" [(ngModel)]="model.gym" required #gym="ngModel">
         <option *ngFor="let g of gyms" [ngValue]="g">
           {{g.label}}
         </option>
@@ -37,7 +37,7 @@
       <label for="season">
         Období
       </label>
-      <select id="season" class="form-control" name="season" [(ngModel)]="model.season" required #season="ngModel">
+      <select id="season" class="form-control input-sm" name="season" [(ngModel)]="model.season" required #season="ngModel">
         <option *ngFor="let s of seasons" [ngValue]="s" [selected]="model.season.label==s.label">
           {{s.label}}
         </option>
@@ -51,12 +51,11 @@
       <label for="amount">
         Cena
       </label>
-      <input id="amount" name="amount" class="form-control" readonly="readonly" type="number" [ngModel]="model.season.amount()">
+      <input id="amount" name="amount" class="form-control input-sm" readonly="readonly" type="number" [ngModel]="model.season.amount()">
     </div>
     <div class="form-group">
-      <button type="submit" class="btn btn-default btn-primary" (click)="generate()" [disabled]="!qrForm.form.valid">Generuj QR kód</button>
-      <button type="button" class="btn btn-warning" (click)="clearForm()" >Vyčistit</button>
-      <a href="http://sonkal.cz" style="float: right;"><span class="glyphicon glyphicon-share-alt"></span><span>Zpět na Sonkal</span></a>
+      <button type="submit" class="btn btn-default btn-primary btn-xs" (click)="generate()" [disabled]="!qrForm.form.valid">Generuj QR kód</button>
+      <button type="button" class="btn btn-warning btn-xs" (click)="clearForm()" >Vyčistit</button>
     </div>
   </form>
 </div>

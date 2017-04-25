@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>jQuery UI Dialog - Default functionality</title>
+  <link rel="stylesheet" href="http://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script>
+  </script>
+</head>
+<body>
+
+<a id="platby_open" href="#">
+  Open Dialog
+</a>
+<script>
+  $(function () {
+    $("#platby_dialog").dialog({
+      height: "auto",
+      width: 640,
+      autoOpen: false,
+      modal: true
+    });
+  });
+
+  $('#platby_open').click(function () {
+    $('#platby_dialog').dialog('open');
+  });
+</script>
+<div id="platby_dialog" title="Sonkal Platby">
+  <iframe scrolling="no" frameBorder="0" src="index.html" width="600" height="380"/>
+</div>
+
+</body>
+</html>
