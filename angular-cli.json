@@ -11,7 +11,8 @@
         "assets",
         "favicon.ico",
         "sonkal_files",
-        "sonkal.html"
+        "sonkal.html",
+        "index.html"
       ],
       "index": "qr-code.html",
       "main": "main.ts",
